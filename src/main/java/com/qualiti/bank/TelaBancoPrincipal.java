@@ -17,6 +17,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import com.qualiti.bank.fachada.IFachada;
 import com.qualiti.bank.gui.TelaCadastrarCliente;
 import com.qualiti.bank.gui.TelaHoraSistema;
+import com.qualiti.bank.gui.TelaRelatorioClientes;
 
 @SpringBootApplication
 public class TelaBancoPrincipal {
@@ -49,6 +50,7 @@ public class TelaBancoPrincipal {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public TelaBancoPrincipal() {
 		initialize();
@@ -103,7 +105,17 @@ public class TelaBancoPrincipal {
 		});
 		mnClientes.add(mntmCadastrar_1);
 		
-		JMenuItem mntmProcurar_1 = new JMenuItem("Procurar");
+		JMenuItem mntmProcurar_1 = new JMenuItem("Relatório");
+		mntmProcurar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				TelaRelatorioClientes telaCadastrarCliente = 
+						new TelaRelatorioClientes(frmQualitiBank, getFachada());
+				frmQualitiBank.setContentPane(telaCadastrarCliente);
+				frmQualitiBank.revalidate();
+				
+			}
+		});
 		mnClientes.add(mntmProcurar_1);
 		
 		JMenu mnTransaes = new JMenu("Transa\u00E7\u00F5es");
