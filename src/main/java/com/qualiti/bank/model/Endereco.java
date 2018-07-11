@@ -1,6 +1,15 @@
 package com.qualiti.bank.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "endereco")
 public class Endereco {
+	
+	@Id
+	private String cpf;
 	
 	private String logradouro;
 	private String numero;
@@ -61,5 +70,17 @@ public class Endereco {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	
+	
+	
 
 }

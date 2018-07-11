@@ -1,8 +1,15 @@
 package com.qualiti.bank.model;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
+@Entity
+@DiscriminatorValue(value="CLIENTE")
 public class Cliente extends Pessoa {
 	
+	@Enumerated(EnumType.STRING)
 	private TipoCliente tipo;
 	
 	public Cliente() {
