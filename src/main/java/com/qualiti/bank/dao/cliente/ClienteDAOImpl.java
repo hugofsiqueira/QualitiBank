@@ -9,7 +9,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Repository;
 
 import com.qualiti.bank.model.Cliente;

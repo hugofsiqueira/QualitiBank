@@ -7,8 +7,7 @@ import com.qualiti.bank.model.Cliente;
 
 
 @Repository
-public interface ClienteDAO extends JpaRepository<Cliente, String>, 
-														ClienteDAOCustom{
+public interface ClienteDAO extends JpaRepository<Cliente, String>, ClienteDAOCustom{
 	
 	
 

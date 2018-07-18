@@ -1,9 +1,19 @@
 package com.qualiti.bank.model;
 
-public class ContaId {
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class ContaId implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3875856927737658486L;
 	
 	private String numero;
-	private Agencia agencia;
+	private String agencia;
 	
 	public String getNumero() {
 		return numero;
@@ -11,10 +21,11 @@ public class ContaId {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-	public Agencia getAgencia() {
+	
+	public String getAgencia() {
 		return agencia;
 	}
-	public void setAgencia(Agencia agencia) {
+	public void setAgencia(String agencia) {
 		this.agencia = agencia;
 	}
 	@Override

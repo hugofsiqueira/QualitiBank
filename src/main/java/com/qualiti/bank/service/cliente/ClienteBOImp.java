@@ -1,5 +1,7 @@
 package com.qualiti.bank.service.cliente;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,8 +51,10 @@ public class ClienteBOImp implements IClienteBO {
 			throw new 
 			      BancoException("CPF invalido");
 		}
-		if(repositorio.findById(cpf).isPresent()) {
-			return repositorio.findById(cpf).get();
+		
+		Optional<Cliente> response = repositorio.findById(cpf);
+		if(response.isPresent()) {
+			return response.get();
 		}
 		
 		return null;
@@ -70,6 +74,7 @@ public class ClienteBOImp implements IClienteBO {
 		
 		if(c != null) {
 			repositorio.delete(c);
+			//repositorio.deleteById(cpf);
 		}else {
 			throw new 
 			BancoException("Cliente não cadastrado");
@@ -96,7 +101,7 @@ public class ClienteBOImp implements IClienteBO {
 				cliente.getCpf());
 		
 		if(c != null) {
-			repositorio.saveAndFlush(cliente);
+			repositorio.save(cliente);
 		}else {
 			throw new 
 			BancoException("Cliente não cadastrado");

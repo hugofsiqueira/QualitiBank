@@ -2,6 +2,11 @@ package com.qualiti.bank.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value="BONUS")
 public class ContaBonus extends Conta {
 	
 	public static final BigDecimal TAXA = new BigDecimal(0.1);

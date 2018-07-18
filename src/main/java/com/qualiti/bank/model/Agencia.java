@@ -1,16 +1,30 @@
 package com.qualiti.bank.model;
 
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "agencia")
 public class Agencia {
 	
 	private String nome;
-	private String codigo;
-	private Endereco endereco;
 	
+	@Id
+	private String codigo;
+	
+
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="agencia")
+	private Set<Conta> listaContas;
 	
 	
 	@Override
 	public String toString() {
-		return "Agencia [codigo=" + codigo + "]";
+		return codigo ;
 	}
 	
 	@Override
@@ -48,11 +62,15 @@ public class Agencia {
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+
+	public Set<Conta> getListaContas() {
+		return listaContas;
 	}
 
+	public void setListaContas(Set<Conta> listaContas) {
+		this.listaContas = listaContas;
+	}
+
+
+	
 }

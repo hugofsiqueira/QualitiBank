@@ -290,7 +290,7 @@ public class TelaCadastrarCliente extends JPanel {
 						}
 						
 					}else {
-						JOptionPane.showMessageDialog(null, "CPF n�o cadastrado", "Procurar Cliente",
+						JOptionPane.showMessageDialog(null, "CPF não cadastrado", "Procurar Cliente",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
 					

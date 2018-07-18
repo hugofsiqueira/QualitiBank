@@ -22,12 +22,9 @@ public class Endereco {
 	public Endereco() {
 		
 	}
-	
 	public Endereco(String uf) {
 		this.uf = uf;
 	}
-	
-	
 	public String getLogradouro() {
 		return logradouro;
 	}

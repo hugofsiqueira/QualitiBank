@@ -16,8 +16,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import com.qualiti.bank.fachada.IFachada;
 import com.qualiti.bank.gui.TelaCadastrarCliente;
+import com.qualiti.bank.gui.TelaCadastrarConta;
 import com.qualiti.bank.gui.TelaHoraSistema;
 import com.qualiti.bank.gui.TelaRelatorioClientes;
+import com.qualiti.bank.gui.TelaTransacoesConta;
 
 @SpringBootApplication
 public class TelaBancoPrincipal {
@@ -76,10 +78,10 @@ public class TelaBancoPrincipal {
 		mntmCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-//				TelaCadastrarConta telaCadastrarConta = 
-//						new TelaCadastrarConta(frmQualitiBank);
-//				frmQualitiBank.setContentPane(telaCadastrarConta);
-//				frmQualitiBank.revalidate();
+				TelaCadastrarConta telaCadastrarConta = 
+						new TelaCadastrarConta(frmQualitiBank, fachada);
+				frmQualitiBank.setContentPane(telaCadastrarConta);
+				frmQualitiBank.revalidate();
 				
 			}
 		});
@@ -118,10 +120,20 @@ public class TelaBancoPrincipal {
 		});
 		mnClientes.add(mntmProcurar_1);
 		
-		JMenu mnTransaes = new JMenu("Transa\u00E7\u00F5es");
+		JMenu mnTransaes = new JMenu("Transações");
 		menuBar.add(mnTransaes);
 		
-		JMenuItem mntmMovimentaes = new JMenuItem("Lan\u00E7amentos");
+		JMenuItem mntmMovimentaes = new JMenuItem("Lançamentos");
+		mntmMovimentaes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				TelaTransacoesConta telaTransacoesConta = 
+						new TelaTransacoesConta(frmQualitiBank, getFachada());
+				frmQualitiBank.setContentPane(telaTransacoesConta);
+				frmQualitiBank.revalidate();
+				
+			}
+		});
 		mnTransaes.add(mntmMovimentaes);
 		
 		JMenuItem mntmExtrato = new JMenuItem("Extrato");
